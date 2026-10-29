@@ -9,7 +9,6 @@ import okhttp3.Interceptor;
 import okhttp3.Request;
 import okhttp3.Response;
 import okhttp3.ResponseBody;
-import org.jspecify.annotations.NonNull;
 
 import java.io.IOException;
 
@@ -22,7 +21,6 @@ import java.io.IOException;
 @Requires ("com.squareup.okhttp3:okhttp")
 public class MultiHasherInterceptor implements Interceptor {
 
-    @NonNull
     @Override
     public Response intercept(Interceptor.Chain chain) throws IOException {
         Request request = chain.request();

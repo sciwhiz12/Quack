@@ -11,7 +11,6 @@ import okio.ForwardingSource;
 import okio.Okio;
 import okio.Source;
 import org.jetbrains.annotations.Nullable;
-import org.jspecify.annotations.NonNull;
 
 import java.util.function.Function;
 
@@ -58,7 +57,6 @@ public abstract class SniffingResponseBody extends ResponseBody {
         return parent.contentType();
     }
 
-    @NonNull
     @Override
     public BufferedSource source() {
         if (source == null) {

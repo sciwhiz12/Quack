@@ -8,7 +8,6 @@ import net.covers1624.quack.net.download.DownloadListener;
 import okio.Buffer;
 import okio.ForwardingSource;
 import okio.Source;
-import org.jspecify.annotations.NonNull;
 
 import java.io.IOException;
 
@@ -32,7 +31,7 @@ public class ProgressForwardingSource extends ForwardingSource {
     }
 
     @Override
-    public long read(@NonNull Buffer sink, long byteCount) throws IOException {
+    public long read(Buffer sink, long byteCount) throws IOException {
         long len = super.read(sink, byteCount);
         if (len == -1) {
             listener.finish(totalLen);

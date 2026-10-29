@@ -5,14 +5,12 @@ package net.covers1624.quack.net.httpapi.okhttp;
 
 import net.covers1624.quack.annotation.Requires;
 import net.covers1624.quack.net.httpapi.*;
-import net.covers1624.quack.net.okhttp.ProgressForwardingSource;
 import okhttp3.MediaType;
 import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
 import okio.*;
 import org.jetbrains.annotations.Nullable;
-import org.jspecify.annotations.NonNull;
 
 import java.io.IOException;
 
@@ -127,7 +125,7 @@ public class OkHttpEngineRequest extends AbstractEngineRequest {
             private long curr;
 
             @Override
-            public long read(@NonNull Buffer sink, long byteCount) throws IOException {
+            public long read(Buffer sink, long byteCount) throws IOException {
                 long now = super.read(sink, byteCount);
                 if (now != -1) {
                     curr += now;

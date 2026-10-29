@@ -9,7 +9,6 @@ import okhttp3.Request;
 import okhttp3.Response;
 import okhttp3.ResponseBody;
 import okio.Throttler;
-import org.jspecify.annotations.NonNull;
 
 import java.io.IOException;
 
@@ -21,9 +20,8 @@ import java.io.IOException;
 @Requires ("com.squareup.okhttp3:okhttp")
 public class ThrottlerInterceptor implements Interceptor {
 
-    @NonNull
     @Override
-    public Response intercept(Interceptor.@NonNull Chain chain) throws IOException {
+    public Response intercept(Interceptor.Chain chain) throws IOException {
         Request request = chain.request();
         Throttler throttler = request.tag(Throttler.class);
 

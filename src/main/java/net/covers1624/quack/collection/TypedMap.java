@@ -4,7 +4,6 @@
 package net.covers1624.quack.collection;
 
 import org.jetbrains.annotations.Nullable;
-import org.jspecify.annotations.NonNull;
 
 import java.util.Collection;
 import java.util.HashMap;
@@ -46,11 +45,11 @@ public class TypedMap implements Map<Object, Object> {
     @Override public Object get(Object key) { return delegate.get(key); }
     @Nullable @Override public Object put(Object key, Object value) { return delegate.put(key, value); }
     @Override public Object remove(Object key) { return delegate.remove(key); }
-    @Override public void putAll(@NonNull Map<?, ?> m) { delegate.putAll(m); }
+    @Override public void putAll(Map<?, ?> m) { delegate.putAll(m); }
     @Override public void clear() { delegate.clear(); }
-    @NonNull @Override public Set<Object> keySet() { return delegate.keySet(); }
-    @NonNull @Override public Collection<Object> values() { return delegate.values(); }
-    @NonNull @Override public Set<Entry<Object, Object>> entrySet() { return delegate.entrySet(); }
+    @Override public Set<Object> keySet() { return delegate.keySet(); }
+    @Override public Collection<Object> values() { return delegate.values(); }
+    @Override public Set<Entry<Object, Object>> entrySet() { return delegate.entrySet(); }
     //@formatter:on
 
     public static class Key<T> {
