@@ -5,7 +5,7 @@ package net.covers1624.quack.collection.redblack;
 
 import com.google.common.collect.Iterators;
 import net.covers1624.quack.collection.ColUtils;
-import org.jetbrains.annotations.NotNull;
+import org.jspecify.annotations.NonNull;
 
 import java.util.Arrays;
 import java.util.Collection;
@@ -35,21 +35,21 @@ public abstract class CollectionRedBlackTree<T, N extends RedBlackNode<N>> exten
         return size() == 0;
     }
 
-    @NotNull
+    @NonNull
     @Override
     public Iterator<T> iterator() {
         return Iterators.transform(entries().iterator(), this::getValue);
     }
 
-    @NotNull
+    @NonNull
     @Override
     public Object[] toArray() {
         return toArray(new Object[0]);
     }
 
-    @NotNull
+    @NonNull
     @Override
-    public <T1> T1[] toArray(@NotNull T1[] a) {
+    public <T1> T1[] toArray(@NonNull T1[] a) {
         T1[] array = ColUtils.createNewArray(a, size());
         int i = 0;
         for (T t : this) {
@@ -69,7 +69,7 @@ public abstract class CollectionRedBlackTree<T, N extends RedBlackNode<N>> exten
     }
 
     @Override
-    public boolean containsAll(@NotNull Collection<?> c) {
+    public boolean containsAll(@NonNull Collection<?> c) {
         for (Object o : c) {
             if (!contains(o)) return false;
         }
@@ -77,7 +77,7 @@ public abstract class CollectionRedBlackTree<T, N extends RedBlackNode<N>> exten
     }
 
     @Override
-    public boolean addAll(@NotNull Collection<? extends T> c) {
+    public boolean addAll(@NonNull Collection<? extends T> c) {
         boolean ret = false;
         for (T t : c) {
             ret |= add(t);
@@ -86,7 +86,7 @@ public abstract class CollectionRedBlackTree<T, N extends RedBlackNode<N>> exten
     }
 
     @Override
-    public boolean removeAll(@NotNull Collection<?> c) {
+    public boolean removeAll(@NonNull Collection<?> c) {
         boolean ret = false;
         for (Object t : c) {
             ret |= remove(t);
@@ -95,7 +95,7 @@ public abstract class CollectionRedBlackTree<T, N extends RedBlackNode<N>> exten
     }
 
     @Override
-    public boolean retainAll(@NotNull Collection<?> c) {
+    public boolean retainAll(@NonNull Collection<?> c) {
         //this requires re-starting the iterator each time we _dont_ find an element in c, as the underlying
         // iterator does not support continued node iteration on removals.
         throw new UnsupportedOperationException("Not implemented for performance reasons. TODO");

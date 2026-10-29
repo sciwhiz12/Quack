@@ -11,8 +11,8 @@ import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
 import okio.*;
-import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import org.jspecify.annotations.NonNull;
 
 import java.io.IOException;
 
@@ -127,7 +127,7 @@ public class OkHttpEngineRequest extends AbstractEngineRequest {
             private long curr;
 
             @Override
-            public long read(@NotNull Buffer sink, long byteCount) throws IOException {
+            public long read(@NonNull Buffer sink, long byteCount) throws IOException {
                 long now = super.read(sink, byteCount);
                 if (now != -1) {
                     curr += now;

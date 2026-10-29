@@ -7,7 +7,7 @@ import net.covers1624.quack.annotation.Requires;
 import okhttp3.Cookie;
 import okhttp3.CookieJar;
 import okhttp3.HttpUrl;
-import org.jetbrains.annotations.NotNull;
+import org.jspecify.annotations.NonNull;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -21,13 +21,13 @@ public class SimpleCookieJar implements CookieJar {
     private final List<Cookie> cookies = new LinkedList<>();
 
     @Override
-    public void saveFromResponse(@NotNull HttpUrl httpUrl, @NotNull List<Cookie> list) {
+    public void saveFromResponse(@NonNull HttpUrl httpUrl, @NonNull List<Cookie> list) {
         cookies.addAll(list);
     }
 
-    @NotNull
+    @NonNull
     @Override
-    public List<Cookie> loadForRequest(@NotNull HttpUrl httpUrl) {
+    public List<Cookie> loadForRequest(@NonNull HttpUrl httpUrl) {
         List<Cookie> ret = new LinkedList<>();
         for (Cookie cookie : cookies) {
             if (cookie.matches(httpUrl)) {
