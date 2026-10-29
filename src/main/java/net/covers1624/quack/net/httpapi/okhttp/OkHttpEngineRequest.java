@@ -10,7 +10,7 @@ import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
 import okio.*;
-import org.jetbrains.annotations.Nullable;
+import org.jspecify.annotations.Nullable;
 
 import java.io.IOException;
 
@@ -21,8 +21,7 @@ import java.io.IOException;
 public class OkHttpEngineRequest extends AbstractEngineRequest {
 
     private final OkHttpEngine engine;
-    @Nullable
-    private Request.Builder builder;
+    private Request.@Nullable Builder builder;
 
     public OkHttpEngineRequest(OkHttpEngine engine) {
         this.engine = engine;
